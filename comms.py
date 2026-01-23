@@ -1,6 +1,5 @@
 from smbus2 import SMBus
 
-
 bus = SMBus(1)
 
 def pad_value(value: float) -> str:
@@ -23,7 +22,7 @@ def create_data_packet(
 
 def send_packet(address: int, packet: str):
   data = list(packet.encode("utf-8"))
-  bus.write_block_data(address, 0, data)
+  bus.write_i2c_block_data(address, 0, data)
 
 
 import time
