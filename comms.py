@@ -12,15 +12,15 @@ def pad_value(value: float) -> str:
   return padded
 
 def send_esp32(data: bytes):
-  bus.write_i2c_block_data(SLAVE_ADDRESS, 5, list(data))
+  bus.write_i2c_block_data(SLAVE_ADDRESS, 0, list(data))
 
 def send_packet(
     left_motor_speed: int,
     right_motor_speed: int,
     raise_platform: bool
 ):
-  send_esp32("L".encode("ascii"))
-  # send_esp32(left_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
+  # send_esp32("L".encode("ascii"))
+  send_esp32(left_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
   # send_esp32("R".encode("ascii"))
   # send_esp32(right_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
 
