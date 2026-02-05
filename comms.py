@@ -20,9 +20,9 @@ def send_packet(
     raise_platform: bool
 ):
   send_esp32("L".encode("ascii"))
-  send_esp32(left_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
-  send_esp32("R".encode("ascii"))
-  send_esp32(right_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
+  # send_esp32(left_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
+  # send_esp32("R".encode("ascii"))
+  # send_esp32(right_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
 
 import time
 
