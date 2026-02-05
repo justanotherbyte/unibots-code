@@ -28,4 +28,4 @@ import time
 
 while True:
   send_packet(64, 67, True)
-  time.sleep(0.2)
+  time.sleep(1)
