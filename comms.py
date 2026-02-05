@@ -24,7 +24,7 @@ def send_packet(
 ):
   send_esp32(left_motor_speed.to_bytes(length=1, byteorder="big", signed=True), opcode=ord('L'))
 
-  bus.write_i2c_block_data(SLAVE_ADDRESS, ord('S'), [*to_b(64), *to_b(16)])
+  bus.write_i2c_block_data(SLAVE_ADDRESS, ord('S'), [*to_b(-64), *to_b(16)])
   # send_esp32("R".encode("ascii"))
   # send_esp32(right_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
 
