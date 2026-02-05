@@ -15,7 +15,7 @@ def send_esp32(data: bytes, opcode: int = 0):
   bus.write_i2c_block_data(SLAVE_ADDRESS, opcode, list(data))
 
 def to_b(n: int):
-  return n.to_bytes(byteorder="big", signed=True)
+  return n.to_bytes(byteorder="big", signed=False)
 
 def send_packet(
     left_motor_speed: int,
