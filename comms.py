@@ -34,7 +34,10 @@ def send_packet(
     right_motor_speed: int,
     raise_platform: bool
 ):
-  send_esp32(left_motor_speed.to_bytes(length=1, byteorder="little"))
+  send_esp32("L".encode("ascii"))
+  send_esp32(left_motor_speed.to_bytes(length=1, byteorder="little", signed=True))
+  send_esp32("R".encode("ascii"))
+  send_esp32(right_motor_speed.to_bytes(length=1, byteorder="little", signed=True))
 
 import time
 
