@@ -3,7 +3,7 @@ from smbus2 import SMBus
 bus = SMBus(1)
 
 def pad_value(value: float) -> str:
-  padded = f"{value:.4f}"
+  padded = f"{value:.2f}"
   if int(padded.split(".")[0]) < 100:
     padded = "0" + padded
 
@@ -28,5 +28,6 @@ def send_packet(address: int, packet: str):
 import time
 
 while True:
-  send_packet(0x08, "hello");
+  packet = create_data_packet(2.3, 4.3, False)
+  send_packet(0x08, packet)
   time.sleep(1)
