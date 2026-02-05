@@ -12,7 +12,7 @@ def pad_value(value: float) -> str:
   return padded
 
 def send_esp32(data: bytes):
-  bus.write_i2c_block_data(SLAVE_ADDRESS, 0, list(data))
+  bus.write_i2c_block_data(SLAVE_ADDRESS, 5, list(data))
 
 def send_packet(
     left_motor_speed: int,
