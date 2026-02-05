@@ -20,6 +20,8 @@ def send_packet(
     raise_platform: bool
 ):
   send_esp32(left_motor_speed.to_bytes(length=1, byteorder="big", signed=True), opcode=ord('L'))
+
+  bus.write_i2c_block_data(SLAVE_ADDRESS, ord('S'), [*bytes(32), *bytes(16)])
   # send_esp32("R".encode("ascii"))
   # send_esp32(right_motor_speed.to_bytes(length=1, byteorder="big", signed=True))
 
